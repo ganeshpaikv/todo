@@ -1,13 +1,23 @@
 let un = document.getElementById("InputEmail");
 let pwd = document.getElementById("InputPassword");
 let pwderr = document.getElementById("pwderror");
-var sessionTimeout = 1; //hours
-var loginDuration = new Date();
-var sessionTimeout = 1; //hours
-var loginDuration = new Date();
 
-function validate(redirct){
+
+ var  activesession = false;
+ console.log(activesession);
+
+ function redirectmain(){
+    
+    if(activesession!=true){
+        location.href = "index.html";
+    }   
+}
+function validate(redirect){
     if(un.value==="admin" && pwd.value==="12345"){
+        window.location = "main.html";
+        // activesession = true;
+        // console.log(activesession);
+    
         redirect();
     }
     else{
@@ -17,17 +27,28 @@ function validate(redirct){
         return false;
 		
     }
+    // console.log(activesession);
 
 }function redirect(){
-    
-    loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
-    
-    loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
-    document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/";
-    
-    if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
-        location.href = "/Login.html";
-      }
-   
+    activesession = true;
+    // console.log(activesession);
+    // window.location.href = "main.html";
     return true;
+    //   callback();
+    // redirectmain();
 }
+redirect();
+console.log(activesession);
+ 
+//   else{
+//     activesession=false;
+//     
+//   }
+//  function redirectmain(){
+    
+//        activesession=false;
+        
+
+//     location.href = "index.html";
+//     }
+// console.log(activesession);
