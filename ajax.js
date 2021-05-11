@@ -18,7 +18,7 @@
 //             // activecheckbox = resp[i].completed;
 //             // if (activecheckbox==true){
 
-//                 outputunchecked += '<input type="checkbox" id="mycheck">'+'&nbsp;'+'&nbsp;'+resp[i].title+'</input>'+'<br />'+'<br />';
+//                 outputunchecked += '<input type="checkbox" id="mycheck[i]" onchange = "checkboxes();>'+'&nbsp;'+'&nbsp;'+resp[i].title+'</input>'+'<br />'+'<br />';
 //                 console.log(outputunchecked);
 //         //    if(resp[i].completed==true){
 //         //         document.getElementById("mycheck").disabled = true;
@@ -63,7 +63,7 @@ function ajax(callback){
          if((resp[i].completed)==false){
 
         
-        outputunchecked += '<input type="checkbox" id="mycheck">'+'&nbsp;'+'&nbsp;'+resp[i].title+'</input>'+'<br />'+'<br />';
+        outputunchecked += '<input type="checkbox" id="mycheck[i]" onchange = "checkboxes();">'+'&nbsp;'+'&nbsp;'+resp[i].title+'</input>'+'<br />'+'<br />';
         document.getElementById("content").innerHTML = outputunchecked;
    
         }
@@ -92,6 +92,11 @@ var totalCheckboxes = $('input:checkbox').length;
 console.log(totalCheckboxes);
 var numberNotChecked = totalCheckboxes - numberOfChecked;
 console.log(numberNotChecked);
+        if (numberOfChecked==95){
+
+    alert("Congrats!! 5 Tasks have been Successfully Completed ");
+
+}
 }
 // let myPromise = new Promise(function(myResolve, myReject) {
 //     let req = new XMLHttpRequest();
